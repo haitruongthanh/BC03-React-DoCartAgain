@@ -44,6 +44,16 @@ export default class BaiTapShoeShop extends Component {
     }
   };
 
+  count = () => {
+    let cartClone = [...this.state.gioHang];
+    let tongSoLuong = 0;
+    cartClone.forEach(function (item) {
+      tongSoLuong += item.soLuong;
+    });
+    console.log("tong so luong", tongSoLuong);
+    return tongSoLuong;
+  };
+
   render() {
     return (
       <div className="mt-5 row">
@@ -55,14 +65,15 @@ export default class BaiTapShoeShop extends Component {
         </div>
         <div className="col-4">
           {" "}
+          <h4>Giỏ hàng</h4>
           {this.state.gioHang.length > 0 && (
             <Cart
               gioHang={this.state.gioHang}
               data={this.state.gioHang}
               delProduct={this.handleDelProduct}
+              count={this.count}
             />
           )}
-          <h4>Số lượng sản phẩm trong giỏ hàng: {this.state.gioHang.length}</h4>
         </div>
       </div>
     );

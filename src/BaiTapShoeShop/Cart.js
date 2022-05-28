@@ -5,7 +5,6 @@ export default class Cart extends Component {
     console.log(this.props.gioHang);
     return (
       <div className="container">
-        <h2>Giỏ hàng</h2>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -38,6 +37,13 @@ export default class Cart extends Component {
                 </tr>
               );
             })}
+            <tr>
+              <th scope="row" colspan="3">
+                Tổng cộng
+              </th>
+              <td>{this.props.count()}</td>
+              <td></td>
+            </tr>
           </tbody>
         </table>
       </div>
